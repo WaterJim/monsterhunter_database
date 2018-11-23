@@ -44,40 +44,44 @@ class _MHWEquipmentReady extends State<MHWEquipmentReady>{
   }
 
   Widget topActionBar() {
-    return new Row(
-      children: <Widget>[
-        new Expanded(
-          child: new Container(
-            margin: const EdgeInsets.all(12.0),
-            child: new Text(
-              '平台选择',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16.0),
-            ),
-            color: Colors.black26,
-          ),
-        ),
-        new Expanded(
-          child: new Container(
-            margin: const EdgeInsets.all(12.0),
-            child: new Text(
-              '技能选择',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16.0),
+    return new Container(
+      decoration: BoxDecoration(
+        color: Colors.black87,
+      ),
+      child: new Row(
+        children: <Widget>[
+          new Expanded(
+            child: new Container(
+              margin: const EdgeInsets.all(16.0),
+              child: new Text(
+                '平台选择',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16.0),
+              ),
             ),
           ),
-        ),
-        new Expanded(
-          child: new Container(
-            margin: const EdgeInsets.all(12.0),
-            child: new Text(
-              '装备设定',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16.0),
+          new Expanded(
+            child: new Container(
+              margin: const EdgeInsets.all(16.0),
+              child: new Text(
+                '技能选择',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16.0),
+              ),
             ),
           ),
-        ),
-      ],
+          new Expanded(
+            child: new Container(
+              margin: const EdgeInsets.all(16.0),
+              child: new Text(
+                '装备设定',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16.0),
+              ),
+            ),
+          ),
+        ],
+      )
     );
   }
 
