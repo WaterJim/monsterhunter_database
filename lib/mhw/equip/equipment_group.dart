@@ -1,33 +1,45 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:monsterhunter_database/mhw/data/skill_group.dart';
 
 class EquipmentGroup extends StatefulWidget{
+
+  EquipmentGroup({Key key, this.groupType : 1, @required this.onSelectChanged}) : super(key : key);
+
   @override
   EquipmentGroupState createState() {
-    // TODO: implement createState
     return new EquipmentGroupState();
   }
+
+  final int groupType;
+  final ValueChanged<int> onSelectChanged;
 }
 
 
 class EquipmentGroupState extends State<EquipmentGroup>{
+
+  int _highlightId = 0;
+  List<SkillGroup> _skillList = new List.from(skillGoupList.whereType());
+  List<SkillGroup> _equipList = new List.from(equipGoupList.whereType());
+
   @override
   Widget build(BuildContext context) {
-//    double screenWidth = window.physicalSize.width;
     double screenWidth = MediaQuery.of(context).size.width;
+    int groupItemCount = widget.groupType == 1 ? _skillList.length : _equipList.length;
+    List<SkillGroup> groupItemList = widget.groupType == 1 ? _skillList : _equipList;
     return new Container(
       width: screenWidth / 3,
-      color: Colors.black54,
+      color: Colors.black38,
       child: new Column(
         children: <Widget>[
           new Expanded(
-            child: ListView(
+            child: ListView.builder(
               shrinkWrap: true,
-              children: <Widget>[
-                groupItem("基础条件", false),
-                groupItem("基础条件", false),
-                groupItem("基础条件", false),
-              ],
+              itemCount: groupItemCount,
+              itemBuilder: (BuildContext context, int index){
+                SkillGroup skillItem = groupItemList[index];
+                return groupItem(skillItem.groupName, skillItem.subTitle, false);
+              },
             ),
           ),
           searchItem("搜索技能", false),
@@ -36,13 +48,22 @@ class EquipmentGroupState extends State<EquipmentGroup>{
     );
   }
 
-  Widget groupItem(String itemName, bool isSelected) {
+  Widget groupItem(String itemName, String subItemName, bool isSelected) {
     return new Container(
       padding: const EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
-      child: Text(
-        itemName,
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 14.0),
+      child: Row(
+        children: <Widget>[
+          Text(
+            itemName,
+            textAlign: TextAlign.left,
+            style: TextStyle(fontSize: 14.0),
+          ),
+          Text(
+            subItemName != '' ? '(' + subItemName + ')' : '',
+            textAlign: TextAlign.left,
+            style: TextStyle(fontSize: 10.0),
+          ),
+        ],
       ),
     );
   }
@@ -66,5 +87,13 @@ class EquipmentGroupState extends State<EquipmentGroup>{
         ),
       ),
     );
+  }
+
+
+
+  void _handleItemSelectChanged(int itemId) {
+    setState(() {
+      _highlightId = itemId;
+    });
   }
 }

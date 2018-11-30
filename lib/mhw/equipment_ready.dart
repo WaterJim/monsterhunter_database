@@ -131,7 +131,7 @@ class _MHWEquipmentReady extends State<MHWEquipmentReady> {
         children: <Widget>[
           new Align(
             alignment: FractionalOffset.topLeft,
-            child: new EquipmentGroup(),
+            child: new EquipmentGroup(groupType: 1, onSelectChanged: null,),
           )
         ],
       ),
