@@ -7,8 +7,8 @@ class EquipmentGroup extends StatefulWidget{
   EquipmentGroup({Key key, this.groupType : 1, @required this.onSelectChanged}) : super(key : key);
 
   @override
-  EquipmentGroupState createState() {
-    return new EquipmentGroupState();
+  _EquipmentGroupState createState() {
+    return new _EquipmentGroupState();
   }
 
   final int groupType;
@@ -16,7 +16,7 @@ class EquipmentGroup extends StatefulWidget{
 }
 
 
-class EquipmentGroupState extends State<EquipmentGroup>{
+class _EquipmentGroupState extends State<EquipmentGroup>{
 
   int _highlightId = 0;
   List<SkillGroup> _skillList = new List.from(skillGoupList.whereType());
@@ -56,12 +56,12 @@ class EquipmentGroupState extends State<EquipmentGroup>{
           Text(
             itemName,
             textAlign: TextAlign.left,
-            style: TextStyle(fontSize: 14.0),
+            style: TextStyle(fontSize: 14.0, color: isSelected ? Colors.white : Colors.grey),
           ),
           Text(
             subItemName != '' ? '(' + subItemName + ')' : '',
             textAlign: TextAlign.left,
-            style: TextStyle(fontSize: 10.0),
+            style: TextStyle(fontSize: 10.0, color: isSelected ? Colors.white : Colors.grey),
           ),
         ],
       ),
@@ -76,11 +76,12 @@ class EquipmentGroupState extends State<EquipmentGroup>{
           children: <Widget>[
             new Icon(
               Icons.search,
+              color: isSelected ? Colors.white : Colors.grey,
               size: 16.0,
             ),
             new Text(
               itemName,
-              style: TextStyle(fontSize: 14.0),
+              style: TextStyle(fontSize: 14.0, color: isSelected ? Colors.white : Colors.grey),
 
             ),
           ],
