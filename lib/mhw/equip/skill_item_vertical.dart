@@ -1,33 +1,34 @@
 import 'package:flutter/material.dart';
 
-class SkillItemVertical extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return null;
-  }
-}
+class SkillItemVertical extends StatelessWidget {
 
-class _SkillItemVerticalState extends State<SkillItemVertical> {
+  SkillItemVertical({Key key, this.active: false}) : super(key: key);
 
-  bool _bHighlight = false;
-
+  final bool active;
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Container(
       decoration: BoxDecoration(
-        border: new Border.all(width: 10.0, color: Colors.black38),
+        border: new Border.all(width: 1.0, color: Colors.grey),
+        color: Colors.black,
       ),
-      child: ,
+      child: Column(
+        children: <Widget>[
+          Container(
+            color: Colors.blueGrey,
+            padding: EdgeInsets.fromLTRB(2.0, 5.0, 2.0, 5.0),
+            child: Text("攻击珠", style: TextStyle(fontSize: 12.0),),
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
+            child: Text("7", style: TextStyle(fontSize: 12.0),),
+
+          ),
+        ],
+      ),
     );
   }
 
-
-  void _handleItemClicked() {
-    setState(() {
-      _bHighlight = !_bHighlight;
-    });
-  }
 }
