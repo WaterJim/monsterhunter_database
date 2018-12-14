@@ -13,7 +13,7 @@ class SkillItemHorizontal extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      width: 110.0,
+      width: 100.0,
       child: Column(
         children: <Widget>[
           Container(
@@ -21,7 +21,7 @@ class SkillItemHorizontal extends StatelessWidget{
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                Icon(Icons.ac_unit, size: 18.0,),
+//                Icon(Icons.ac_unit, size: 18.0,),
                 Text(title),
               ],
             ),

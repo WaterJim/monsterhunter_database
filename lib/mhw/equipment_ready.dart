@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monsterhunter_database/mhw/equip/equipment_group.dart';
 import 'package:monsterhunter_database/mhw/equip/equipment_skills.dart';
+import 'package:monsterhunter_database/mhw/equip/skills_select.dart';
 
 class MHWEquipmentReady extends StatefulWidget {
   @override
@@ -135,7 +136,7 @@ class _MHWEquipmentReady extends State<MHWEquipmentReady> {
             child: new EquipmentGroup(groupType: 1, onSelectChanged: null,),
           ),
           Expanded(
-            child: new EquipmentSkill(),
+            child: new SkillsSelect(),
           ),
 
         ],
